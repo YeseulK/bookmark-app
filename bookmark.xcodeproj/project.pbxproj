@@ -15,6 +15,7 @@
 		85FA7E752823B46B00661ADC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85FA7E732823B46B00661ADC /* Main.storyboard */; };
 		85FA7E812823B46B00661ADC /* bookmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7E802823B46B00661ADC /* bookmarkTests.swift */; };
 		85FA7E8C2823B46C00661ADC /* bookmarkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7E8B2823B46C00661ADC /* bookmarkUITests.swift */; };
+		85FA7E9A2823B57100661ADC /* RequestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7E992823B57100661ADC /* RequestApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		85FA7E872823B46C00661ADC /* bookmarkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bookmarkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85FA7E8B2823B46C00661ADC /* bookmarkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkUITests.swift; sourceTree = "<group>"; };
 		85FA7E8D2823B46C00661ADC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FA7E992823B57100661ADC /* RequestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				85FA7E772823B46B00661ADC /* bookmark.entitlements */,
 				85FA7E6B2823B46900661ADC /* bookmark.xcdatamodeld */,
 				85FA7E702823B46B00661ADC /* Preview Content */,
+				85FA7E992823B57100661ADC /* RequestApi.swift */,
 			);
 			path = bookmark;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				85FA7E6D2823B46900661ADC /* bookmark.xcdatamodeld in Sources */,
 				85FA7E6A2823B46900661ADC /* ContentView.swift in Sources */,
+				85FA7E9A2823B57100661ADC /* RequestApi.swift in Sources */,
 				85FA7E682823B46900661ADC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -423,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -449,7 +453,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeseul.bookmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -473,7 +477,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yeseul.bookmark;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
