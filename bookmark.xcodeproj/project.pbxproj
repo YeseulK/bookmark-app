@@ -20,6 +20,8 @@
 		85FA7EAF2826E7A600661ADC /* FolderApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EAE2826E7A600661ADC /* FolderApi.swift */; };
 		85FA7EB12826E7EC00661ADC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB02826E7EC00661ADC /* NetworkManager.swift */; };
 		85FA7EB32826E80A00661ADC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB22826E80A00661ADC /* Config.swift */; };
+		85FA7EB62826EA7B00661ADC /* FolderDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB52826EA7B00661ADC /* FolderDto.swift */; };
+		85FA7EB82826EA9A00661ADC /* BookmarkDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */; };
 		971705DCE11958D8D7F1B028 /* Pods_bookmark_bookmarkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B09C7714DF85D9CEEC63000 /* Pods_bookmark_bookmarkUITests.framework */; };
 		E8F41D3AD6FA9B769071D959 /* Pods_bookmark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874CB1354915C80CD7A94D97 /* Pods_bookmark.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		85FA7EAE2826E7A600661ADC /* FolderApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderApi.swift; sourceTree = "<group>"; };
 		85FA7EB02826E7EC00661ADC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		85FA7EB22826E80A00661ADC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		85FA7EB52826EA7B00661ADC /* FolderDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDto.swift; sourceTree = "<group>"; };
+		85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDto.swift; sourceTree = "<group>"; };
 		874CB1354915C80CD7A94D97 /* Pods_bookmark.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookmark.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD809AC000C545938569E5FA /* Pods-bookmarkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookmarkTests.debug.xcconfig"; path = "Target Support Files/Pods-bookmarkTests/Pods-bookmarkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6C403AC3DC84BDDA03EB841 /* Pods-bookmark-bookmarkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookmark-bookmarkUITests.debug.xcconfig"; path = "Target Support Files/Pods-bookmark-bookmarkUITests/Pods-bookmark-bookmarkUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		85FA7EAA2826E72B00661ADC /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				85FA7EB42826EA6300661ADC /* Dto */,
 				85FA7EAB2826E74500661ADC /* Api */,
 				85FA7EB02826E7EC00661ADC /* NetworkManager.swift */,
 			);
@@ -194,6 +199,15 @@
 				85FA7EAE2826E7A600661ADC /* FolderApi.swift */,
 			);
 			path = Api;
+			sourceTree = "<group>";
+		};
+		85FA7EB42826EA6300661ADC /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				85FA7EB52826EA7B00661ADC /* FolderDto.swift */,
+				85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */,
+			);
+			path = Dto;
 			sourceTree = "<group>";
 		};
 		D7B50E1F644CC2165EE3CEB9 /* Frameworks */ = {
@@ -449,6 +463,8 @@
 				85FA7EAF2826E7A600661ADC /* FolderApi.swift in Sources */,
 				85FA7EB12826E7EC00661ADC /* NetworkManager.swift in Sources */,
 				85FA7EB32826E80A00661ADC /* Config.swift in Sources */,
+				85FA7EB82826EA9A00661ADC /* BookmarkDto.swift in Sources */,
+				85FA7EB62826EA7B00661ADC /* FolderDto.swift in Sources */,
 				85FA7E682823B46900661ADC /* AppDelegate.swift in Sources */,
 				85FA7EAD2826E78100661ADC /* BookmarkApi.swift in Sources */,
 			);
