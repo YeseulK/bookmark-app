@@ -23,7 +23,8 @@ class NetworkManager: ObservableObject {
                  onFailure: @escaping (Error) -> Void) {
         
         guard let url = url else { return }
-        AF.request(url, method: method, parameters: params)
+        let encoding: ParameterEncoding = method == .get ? URLEncoding.default : JSONEncoding.default
+        AF.request(url, method: method, parameters: params, encoding: encoding)
             .validate()
             .responseData { response in
                 switch response.result {

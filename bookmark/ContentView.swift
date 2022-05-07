@@ -13,15 +13,36 @@ struct Bookmark: Hashable, Identifiable {
     var url: String
 }
 
-struct FolderView: View {
+struct BookmarkListView: View {
     var folder: FolderDto
     @State var bookmarks: [BookmarkDto] = []
-        
+    @State private var showingAlert = false
+    @State var textFieldTitle: String = ""
+    @State var textFieldUrl: String = ""
+    
     var body: some View {
         List {
+            HStack {
+                Text(folder.title).font(.headline)
+                Button(action: {
+                    self.showingAlert = true
+                    BookmarkApi().postBookmark(folderId: folder.id, title: textFieldTitle, strUrl: textFieldUrl) { 
+                        // TODO:
+                        // bookmarks.append(BookmarkDto(id: ??, title: textFieldTitle, url: textFieldUrl))
+                    }
+                }) {
+                    Text("추가")
+                }
+            }
             VStack(alignment: .leading, spacing: 12) {
-                Text(folder.title)
-                    .font(.headline)
+                HStack {
+                    Text("주소:")
+                    TextField("Enter url", text: $textFieldUrl)
+                }
+                HStack {
+                    Text("이름:")
+                    TextField("Enter title", text: $textFieldTitle)
+                }
                 ForEach(bookmarks, id: \.self) { result in
                     BookmarkView(bookmark: Bookmark(title: result.title, url:result.url))
                 }
@@ -36,20 +57,30 @@ struct FolderView: View {
 
 struct ContentView: View {
     @State var folders: [FolderDto] = []
+    @State private var showingAlert = false
+    
     var body: some View {
             NavigationView {
                 List {
                   HStack {
                     Text("북마크")
                         .font(.headline)
+                    Button(action: {
+                        self.showingAlert = true
+                    }) {
+                        Text("추가")
+                    }.alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Title"), message: Text("Message"), primaryButton: .destructive(Text("Primary"), action: {
+                        }), secondaryButton: .cancel())
+                    }
                   }
                   ForEach(folders, id: \.self)
                     { folder in
-                    NavigationLink(destination: FolderView(folder: folder)
-                                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        ) {
-                            Text(folder.title)
-                        }
+                    NavigationLink(destination: BookmarkListView(folder: folder)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    ) {
+                        Text(folder.title)
+                    }
                   }
                 }.listStyle(SidebarListStyle())
             }.onAppear {
