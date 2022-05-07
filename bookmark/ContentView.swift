@@ -14,28 +14,28 @@ struct Bookmark: Hashable, Identifiable {
 }
 
 struct FolderView: View {
-    var name: String
-    @State var tasks = []
-    @StateObject private var network = RequestApi.shared
+    var folder: FolderDto
+    @State var bookmarks: [BookmarkDto] = []
         
     var body: some View {
         List {
             VStack(alignment: .leading, spacing: 12) {
-                Text(name)
+                Text(folder.title)
                     .font(.headline)
-                ForEach(network.result, id: \.self) { result in
+                ForEach(bookmarks, id: \.self) { result in
                     BookmarkView(bookmark: Bookmark(title: result.title, url:result.url))
                 }
-                
             }.onAppear {
-                network.fetchData()
+                FolderApi().getFolder(folerId: folder.id) { result in
+                    bookmarks = result.bookmarks
+                }
             }
         }
     }
 }
 
 struct ContentView: View {
-    let folders = ["폴더1", "폴더2", "폴더3"]
+    @State var folders: [FolderDto] = []
     var body: some View {
             NavigationView {
                 List {
@@ -45,13 +45,17 @@ struct ContentView: View {
                   }
                   ForEach(folders, id: \.self)
                     { folder in
-                        NavigationLink(destination: FolderView(name: folder)
+                    NavigationLink(destination: FolderView(folder: folder)
                                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         ) {
-                            Text(folder)
+                            Text(folder.title)
                         }
                   }
                 }.listStyle(SidebarListStyle())
+            }.onAppear {
+                FolderApi().getFolders() { result in
+                    folders = result
+                }
             }
     }
 }
