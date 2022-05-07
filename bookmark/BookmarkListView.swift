@@ -10,7 +10,6 @@ import SwiftUI
 struct BookmarkListView: View {
     var folder: FolderDto
     @State var bookmarks: [BookmarkDto] = []
-    @State private var showingAlert = false
     @State var textFieldTitle: String = ""
     @State var textFieldUrl: String = ""
     
@@ -19,11 +18,12 @@ struct BookmarkListView: View {
             HStack {
                 Text(folder.title).font(.headline)
                 Button(action: {
-                    self.showingAlert = true
                     BookmarkApi().postBookmark(folderId: folder.id, title: textFieldTitle, strUrl: textFieldUrl) {
                         // TODO:
                         // bookmarks.append(BookmarkDto(id: ??, title: textFieldTitle, url: textFieldUrl))
                     }
+                    textFieldUrl = ""
+                    textFieldTitle = ""
                 }) {
                     Text("추가")
                 }

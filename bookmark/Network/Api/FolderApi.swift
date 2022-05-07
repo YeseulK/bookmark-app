@@ -37,4 +37,17 @@ class FolderApi {
             print(error.localizedDescription)
         }
     }
+    
+    func postFolder(title: String, _ completion: @escaping () -> Void) {
+        guard let url = network.makeUrl(path: "/v1/folders") else { return }
+        let params: [String: Any] = [
+            "title": title,
+            "userId": 55, // TODO:
+        ]
+        network.request(url: url, method: .post, params: params) { _ in
+            completion()
+        } onFailure: { error in
+            print(error.localizedDescription)
+        }
+    }
 }

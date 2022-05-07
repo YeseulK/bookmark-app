@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var folders: [FolderDto] = []
     @State private var showingAlert = false
+    @State var textFieldTitle: String = ""
     
     var body: some View {
             NavigationView {
@@ -18,14 +19,19 @@ struct ContentView: View {
                     Text("북마크")
                         .font(.headline)
                     Button(action: {
-                        self.showingAlert = true
+                        FolderApi().postFolder(title: textFieldTitle) {
+                            // TODO:
+                            // folders.append(FolderDto(id: 0, title: textFieldTitle, bookmarks: []))
+                        }
+                        textFieldTitle = ""
                     }) {
                         Text("추가")
-                    }.alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Title"), message: Text("Message"), primaryButton: .destructive(Text("Primary"), action: {
-                        }), secondaryButton: .cancel())
                     }
                   }
+                    HStack {
+                        Text("이름:")
+                        TextField("Enter title", text: $textFieldTitle)
+                    }
                   ForEach(folders, id: \.self)
                     { folder in
                     NavigationLink(destination: BookmarkListView(folder: folder)
