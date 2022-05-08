@@ -20,7 +20,6 @@ struct Bookmark: Hashable, Identifiable {
 class LinkViewModel : ObservableObject {
     @Published var metadata: WebLinkMetadata?
     var strUrl: String = ""
-    @State var imageData: Data = Data()
     
     init(link : String) {
         self.strUrl = link
@@ -45,26 +44,26 @@ struct BookmarkView: View {
     
     var body: some View {
         HStack {
-            ImageView(imageUrl: vm.metadata?[.image] ?? "").frame(width: 70, height: 70, alignment: .center).fixedSize()
+            MetaImageView(imageUrl: vm.metadata?[.image] ?? "").frame(width: 60, height: 30, alignment: .center).padding().contextMenu {
+                Button {
+                    print("\(vm.metadata?[.url] ?? vm.strUrl)")
+                } label: {
+                    Label("삭제", systemImage: "delete")
+                }
+            }
             VStack {
-                Text(vm.metadata?[.title] ?? vm.strUrl).fontWeight(.heavy).lineLimit(1)
-                Text(vm.metadata?[.description] ?? "").lineLimit(2).font(.system(size: 11)).foregroundColor(.gray)
-                Text(vm.metadata?[.url] ?? vm.strUrl).lineLimit(1).foregroundColor(.blue)
+                Text(vm.metadata?[.title] ?? vm.strUrl).style(.title).alignment(.leading)
+                Text(vm.metadata?[.description] ?? "").style(.description).alignment(.leading)
+                Text(vm.metadata?[.url] ?? vm.strUrl).style(.url).alignment(.leading)
             }
-        }.onHover(perform: { inside in
-            if inside {
-                NSCursor.crosshair.push()
-            } else {
-                NSCursor.pop()
-            }
-        })
-        .onTapGesture {
+        }.onTapGesture {
             openURL(URL(string: vm.strUrl)!)
-        }.padding()
+        }
+        .padding()
     }
 }
 
-struct ImageView: View {
+struct MetaImageView: View {
     var imageUrl: String = ""
     
     var body: some View {
@@ -75,7 +74,16 @@ struct ImageView: View {
                     .aspectRatio(contentMode: .fill)
             }
         } else {
-            Image("")
+            Image(systemName: "book")
         }
     }
 }
+
+//struct MetaTextView: View {
+//    var text: String = ""
+//    var optText: String = ""
+//
+//    var body: some View {
+//
+//    }
+//}

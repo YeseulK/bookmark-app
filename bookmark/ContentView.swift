@@ -18,16 +18,19 @@ struct ContentView: View {
                 HStack {
                     Text("북마크").font(.headline)
                     Button(action: {
-                        reqPostFolder()
-                        textFieldTitle = ""
+                        if !textFieldTitle.isEmpty {
+                            reqPostFolder()
+                            textFieldTitle = ""
+                        }
+                        
                     }) {
                         Text("추가")
                     }
                 }
-                HStack {
-                    Text("이름:")
-                    TextField("Enter name", text: $textFieldTitle)
-                }
+                //                HStack {
+                //                    Text("이름:")
+                //                    TextField("Enter name", text: $textFieldTitle)
+                //                }
                 ForEach(folders, id: \.self)
                 { folder in
                     NavigationLink(destination: BookmarkListView(folder: folder)
