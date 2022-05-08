@@ -39,8 +39,9 @@ class LinkViewModel : ObservableObject {
 
 
 struct BookmarkView: View {
-    @StateObject var vm : LinkViewModel
     @Environment(\.openURL) private var openURL
+    @StateObject var vm: LinkViewModel
+    @State var memoText: String = ""
     
     var body: some View {
         HStack {
@@ -50,14 +51,17 @@ struct BookmarkView: View {
                 } label: {
                     Label("삭제", systemImage: "delete")
                 }
+            }.onTapGesture {
+                openURL(URL(string: vm.strUrl)!)
             }
             VStack {
                 Text(vm.metadata?[.title] ?? vm.strUrl).style(.title).alignment(.leading)
                 Text(vm.metadata?[.description] ?? "").style(.description).alignment(.leading)
                 Text(vm.metadata?[.url] ?? vm.strUrl).style(.url).alignment(.leading)
+            }.onTapGesture {
+                openURL(URL(string: vm.strUrl)!)
             }
-        }.onTapGesture {
-            openURL(URL(string: vm.strUrl)!)
+            TextEditor(text: $memoText).frame(width: 120, height: 70, alignment: .leading)
         }
         .padding()
     }

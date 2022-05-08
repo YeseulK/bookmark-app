@@ -30,7 +30,7 @@ struct BookmarkListView: View {
                 }
             }
             ForEach(bookmarks, id: \.self) { result in
-                BookmarkView(vm: LinkViewModel(link: result.url))
+                BookmarkView(vm: LinkViewModel(link: result.url), memoText: result.title)
             }
         }.onAppear {
             reqGetFolder()
