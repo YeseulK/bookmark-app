@@ -13,39 +13,46 @@ struct ContentView: View {
     @State var textFieldTitle: String = ""
     
     var body: some View {
-            NavigationView {
-                List {
-                  HStack {
-                    Text("북마크")
-                        .font(.headline)
+        NavigationView {
+            List {
+                HStack {
+                    Text("북마크").font(.headline)
                     Button(action: {
-                        FolderApi().postFolder(title: textFieldTitle) {
-                            // TODO:
-                            // folders.append(FolderDto(id: 0, title: textFieldTitle, bookmarks: []))
-                        }
+                        reqPostFolder()
                         textFieldTitle = ""
                     }) {
                         Text("추가")
                     }
-                  }
-                    HStack {
-                        Text("이름:")
-                        TextField("Enter title", text: $textFieldTitle)
-                    }
-                  ForEach(folders, id: \.self)
-                    { folder in
+                }
+                HStack {
+                    Text("이름:")
+                    TextField("Enter name", text: $textFieldTitle)
+                }
+                ForEach(folders, id: \.self)
+                { folder in
                     NavigationLink(destination: BookmarkListView(folder: folder)
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     ) {
                         Text(folder.title)
                     }
-                  }
-                }.listStyle(SidebarListStyle())
-            }.onAppear {
-                FolderApi().getFolders() { result in
-                    folders = result
                 }
-            }
+            }.listStyle(SidebarListStyle())
+        }.onAppear {
+            reqGetFolders()
+        }
+    }
+    
+    private func reqGetFolders() {
+        FolderApi().getFolders() { result in
+            folders = result
+        }
+    }
+    
+    private func reqPostFolder() {
+        FolderApi().postFolder(title: textFieldTitle) {
+            // TODO:
+            // folders.append(FolderDto(id: 0, title: textFieldTitle, bookmarks: []))
+        }
     }
 }
 
