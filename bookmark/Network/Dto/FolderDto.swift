@@ -9,6 +9,6 @@ import Foundation
 
 struct FolderDto: Decodable, Hashable {
     let id: Int
-    let title: String
+    let name: String
     let bookmarks: [BookmarkDto]
 }

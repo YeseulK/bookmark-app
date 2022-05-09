@@ -24,11 +24,11 @@ class BookmarkApi {
         }
     }
     
-    func postBookmark(folderId: Int, title: String, strUrl: String, _ completion: @escaping () -> Void) {
+    func postBookmark(folderId: Int, memo: String, strUrl: String, _ completion: @escaping () -> Void) {
         guard let url = network.makeUrl(path: "/v1/bookmarks") else { return }
         let params: [String: Any] = [
             "folderId": folderId,
-            "title": title,
+            "memo": memo,
             "url": strUrl,
         ]
         network.request(url: url, method: .post, params: params) { _ in

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var folders: [FolderDto] = []
     @State private var showingAlert = false
-    @State var textFieldTitle: String = ""
+    @State var nameTextField: String = ""
     
     var body: some View {
         NavigationView {
@@ -18,9 +18,9 @@ struct ContentView: View {
                 HStack {
                     Text("북마크").font(.headline)
                     Button(action: {
-                        if !textFieldTitle.isEmpty {
+                        if !nameTextField.isEmpty {
                             reqPostFolder()
-                            textFieldTitle = ""
+                            nameTextField = ""
                         }
                         
                     }) {
@@ -36,7 +36,7 @@ struct ContentView: View {
                     NavigationLink(destination: BookmarkListView(folder: folder)
                                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     ) {
-                        Text(folder.title)
+                        Text(folder.name)
                     }
                 }
             }.listStyle(SidebarListStyle())
@@ -52,7 +52,7 @@ struct ContentView: View {
     }
     
     private func reqPostFolder() {
-        FolderApi().postFolder(title: textFieldTitle) {
+        FolderApi().postFolder(name: nameTextField) {
             // TODO:
             // folders.append(FolderDto(id: 0, title: textFieldTitle, bookmarks: []))
         }

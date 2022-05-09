@@ -9,6 +9,6 @@ import Foundation
 
 struct BookmarkDto: Decodable, Hashable {
     let id: Int
-    let title: String
+    let memo: String
     let url: String
 }

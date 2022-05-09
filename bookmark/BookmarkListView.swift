@@ -11,7 +11,6 @@ struct BookmarkListView: View {
     
     var folder: FolderDto
     @State var bookmarks: [BookmarkDto] = []
-    @State var textFieldTitle: String = ""
     @State var textFieldUrl: String = ""
     
     var body: some View {
@@ -30,7 +29,7 @@ struct BookmarkListView: View {
                 }
             }
             ForEach(bookmarks, id: \.self) { result in
-                BookmarkView(vm: LinkViewModel(link: result.url), memoText: result.title)
+                BookmarkView(vm: LinkViewModel(link: result.url), memoText: result.memo)
             }
         }.onAppear {
             reqGetFolder()
@@ -44,9 +43,10 @@ struct BookmarkListView: View {
     }
     
     private func reqPostBookmark() {
-        BookmarkApi().postBookmark(folderId: folder.id, title: textFieldTitle, strUrl: textFieldUrl) {
+        bookmarks.append(BookmarkDto(id: 0, memo: "", url: textFieldUrl))
+        BookmarkApi().postBookmark(folderId: folder.id, memo: "", strUrl: textFieldUrl) {
             // TODO:
-            bookmarks.append(BookmarkDto(id: 0, title: textFieldTitle, url: textFieldUrl))
+            
         }
     }
 }

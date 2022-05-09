@@ -38,10 +38,10 @@ class FolderApi {
         }
     }
     
-    func postFolder(title: String, _ completion: @escaping () -> Void) {
+    func postFolder(name: String, _ completion: @escaping () -> Void) {
         guard let url = network.makeUrl(path: "/v1/folders") else { return }
         let params: [String: Any] = [
-            "title": title,
+            "name": name,
             "userId": 55, // TODO:
         ]
         network.request(url: url, method: .post, params: params) { _ in
