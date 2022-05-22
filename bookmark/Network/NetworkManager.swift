@@ -16,15 +16,22 @@ class NetworkManager: ObservableObject {
         return URL(string: url + path)
     }
     
+    func getHeader() -> HTTPHeaders {
+        var header = HTTPHeaders()
+        header.add(name: "Authorization", value: "Bearer \(Config.token)")
+        return header
+    }
+    
     func request(url: URL?,
                  method: HTTPMethod = .get,
                  params: Parameters? = nil,
+                 headers: HTTPHeaders? = nil,
                  onSuccess: @escaping (Data) -> Void,
                  onFailure: @escaping (Error) -> Void) {
         
         guard let url = url else { return }
         let encoding: ParameterEncoding = method == .get ? URLEncoding.default : JSONEncoding.default
-        AF.request(url, method: method, parameters: params, encoding: encoding)
+        AF.request(url, method: method, parameters: params, encoding: encoding, headers: headers)
             .validate()
             .responseData { response in
                 switch response.result {

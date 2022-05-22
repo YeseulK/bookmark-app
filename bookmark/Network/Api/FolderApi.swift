@@ -12,7 +12,7 @@ class FolderApi {
     
     func getFolders(_ completion: @escaping ([FolderDto]) -> Void) {
         guard let url = network.makeUrl(path: "/v1/folders") else { return }
-        network.request(url: url) { data in
+        network.request(url: url, headers: network.getHeader()) { data in
             do {
                 let response = try JSONDecoder().decode([FolderDto].self, from: data)
                 completion(response)
@@ -26,7 +26,7 @@ class FolderApi {
     
     func getFolder(folerId: Int, _ completion: @escaping (FolderDto) -> Void) {
         guard let url = network.makeUrl(path: "/v1/folders/\(folerId)") else { return }
-        network.request(url: url) { data in
+        network.request(url: url, headers: network.getHeader()) { data in
             do {
                 let response = try JSONDecoder().decode(FolderDto.self, from: data)
                 completion(response)

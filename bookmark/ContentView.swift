@@ -41,7 +41,10 @@ struct ContentView: View {
                 }
             }.listStyle(SidebarListStyle())
         }.onAppear {
-            reqGetFolders()
+            // TODO:
+            UserApi().login(email: "", password: "") {
+                reqGetFolders()
+            }
         }
     }
     

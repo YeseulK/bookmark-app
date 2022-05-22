@@ -8,6 +8,6 @@
 import Foundation
 
 struct Config {
-//    static var baseURL = "https://jess.loca.lt"
-    static var baseURL = "http://127.0.0.1:8080"
+    static var baseURL = "https://api.jess.kr"
+    static var token = ""
 }

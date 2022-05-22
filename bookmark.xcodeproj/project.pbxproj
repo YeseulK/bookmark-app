@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		430B94036AAC90C5436E236C /* Pods_bookmarkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08194987AA8DED10F7498652 /* Pods_bookmarkTests.framework */; };
+		8522C70D283A7F14006B0545 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8522C70C283A7F14006B0545 /* UserApi.swift */; };
 		85E856E9282803EE001168F6 /* Text+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E856E8282803EE001168F6 /* Text+Additions.swift */; };
 		85E856EB28280682001168F6 /* View+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E856EA28280682001168F6 /* View+Additions.swift */; };
 		85FA7E682823B46900661ADC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7E672823B46900661ADC /* AppDelegate.swift */; };
@@ -22,7 +23,7 @@
 		85FA7EAF2826E7A600661ADC /* FolderApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EAE2826E7A600661ADC /* FolderApi.swift */; };
 		85FA7EB12826E7EC00661ADC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB02826E7EC00661ADC /* NetworkManager.swift */; };
 		85FA7EB32826E80A00661ADC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB22826E80A00661ADC /* Config.swift */; };
-		85FA7EB62826EA7B00661ADC /* FolderDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB52826EA7B00661ADC /* FolderDto.swift */; };
+		85FA7EB62826EA7B00661ADC /* FolderAndBookmarksDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB52826EA7B00661ADC /* FolderAndBookmarksDto.swift */; };
 		85FA7EB82826EA9A00661ADC /* BookmarkDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */; };
 		85FA7EBA2826FFE100661ADC /* BookmarkListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EB92826FFE100661ADC /* BookmarkListView.swift */; };
 		85FA7EBC2827005C00661ADC /* BookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7EBB2827005C00661ADC /* BookmarkView.swift */; };
@@ -52,6 +53,7 @@
 		1B09C7714DF85D9CEEC63000 /* Pods_bookmark_bookmarkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookmark_bookmarkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		627FD2AB3E524B3802035680 /* Pods-bookmark.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookmark.debug.xcconfig"; path = "Target Support Files/Pods-bookmark/Pods-bookmark.debug.xcconfig"; sourceTree = "<group>"; };
 		64ABB6E678764AE5F7781062 /* Pods-bookmark-bookmarkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookmark-bookmarkUITests.release.xcconfig"; path = "Target Support Files/Pods-bookmark-bookmarkUITests/Pods-bookmark-bookmarkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8522C70C283A7F14006B0545 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		85E856E8282803EE001168F6 /* Text+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Additions.swift"; sourceTree = "<group>"; };
 		85E856EA28280682001168F6 /* View+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Additions.swift"; sourceTree = "<group>"; };
 		85FA7E642823B46900661ADC /* bookmark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookmark.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +75,7 @@
 		85FA7EAE2826E7A600661ADC /* FolderApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderApi.swift; sourceTree = "<group>"; };
 		85FA7EB02826E7EC00661ADC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		85FA7EB22826E80A00661ADC /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		85FA7EB52826EA7B00661ADC /* FolderDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDto.swift; sourceTree = "<group>"; };
+		85FA7EB52826EA7B00661ADC /* FolderAndBookmarksDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderAndBookmarksDto.swift; sourceTree = "<group>"; };
 		85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDto.swift; sourceTree = "<group>"; };
 		85FA7EB92826FFE100661ADC /* BookmarkListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkListView.swift; sourceTree = "<group>"; };
 		85FA7EBB2827005C00661ADC /* BookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkView.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			children = (
 				85FA7EAC2826E78100661ADC /* BookmarkApi.swift */,
 				85FA7EAE2826E7A600661ADC /* FolderApi.swift */,
+				8522C70C283A7F14006B0545 /* UserApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -224,7 +227,7 @@
 		85FA7EB42826EA6300661ADC /* Dto */ = {
 			isa = PBXGroup;
 			children = (
-				85FA7EB52826EA7B00661ADC /* FolderDto.swift */,
+				85FA7EB52826EA7B00661ADC /* FolderAndBookmarksDto.swift */,
 				85FA7EB72826EA9A00661ADC /* BookmarkDto.swift */,
 			);
 			path = Dto;
@@ -483,10 +486,11 @@
 				85E856E9282803EE001168F6 /* Text+Additions.swift in Sources */,
 				85FA7EAF2826E7A600661ADC /* FolderApi.swift in Sources */,
 				85FA7EB12826E7EC00661ADC /* NetworkManager.swift in Sources */,
+				8522C70D283A7F14006B0545 /* UserApi.swift in Sources */,
 				85FA7EB32826E80A00661ADC /* Config.swift in Sources */,
 				85FA7EB82826EA9A00661ADC /* BookmarkDto.swift in Sources */,
 				85FA7EBA2826FFE100661ADC /* BookmarkListView.swift in Sources */,
-				85FA7EB62826EA7B00661ADC /* FolderDto.swift in Sources */,
+				85FA7EB62826EA7B00661ADC /* FolderAndBookmarksDto.swift in Sources */,
 				85FA7EBC2827005C00661ADC /* BookmarkView.swift in Sources */,
 				85FA7E682823B46900661ADC /* AppDelegate.swift in Sources */,
 				85E856EB28280682001168F6 /* View+Additions.swift in Sources */,
